@@ -1,0 +1,47 @@
+.background {
+  background-image: url(~src/assets/bg_1@2x.png);
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  text-align: center;
+}
+
+.web {
+  font-size: 30px;
+  color: #FFFFFF;
+  font-family: Starjedi;
+}
+
+.front {
+  font-size: 70px;
+  color: #FFFFFF;
+  font-family: Distantgalaxy;
+}
+
+p {
+  margin: 0;
+}
+
+form {
+  color: #FFFFFF;
+}
+
+label {
+  font-family: Poppinsbold;
+  font-size: 14px;
+}
+
+input {
+  font-family: Poppinsregular;
+  font-size: 16px;
+  border-radius: 3px;
+  border: none;
+}
+
+#submitBtn {
+  font-family: Poppinsbold;
+  font-size: 16px;
+  background-color: #F7B500;
+  border-radius: 3px;
+  border: none;
+}

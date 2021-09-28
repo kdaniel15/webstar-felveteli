@@ -1,0 +1,20 @@
+<div class="background">
+  <p class="web">Webstar</p>
+  <p class="front">Frontend</p>
+  <div class="loginForm">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <label for="user">Felhasználónév</label>
+      <br>
+      <input type="text" id="user" formControlName="username">
+      <br>
+
+      <label for="password">Jelszó</label>
+      <br>
+      <input type="password" id="password" formControlName="password">
+      <br>
+
+      <button id="submitBtn" type="submit">Belépés</button>
+    </form>
+  </div>
+</div>
+
