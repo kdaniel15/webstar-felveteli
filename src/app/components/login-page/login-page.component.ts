@@ -28,8 +28,14 @@ export class LoginPageComponent implements OnInit {
     const data = {...this.loginForm.value};
     this.userService.login(data).subscribe(
       response => {
-        console.log('next ág');
-        this.router.navigate(['/characters']);
+        console.log("next ág");
+        //const token = response.token;
+        //console.log("mentés előtt" + localStorage.getItem('token'));
+        localStorage.setItem('token', response.token);
+        //console.log("mentés után" + localStorage.getItem('token'));
+        if (localStorage.getItem('token') != null) {
+          this.router.navigate(['/characters']);
+        }
       },
       () => console.log('error ág'),
       () => console.log('complete ág')
