@@ -18,7 +18,13 @@ export class BattleSimulationComponent implements OnInit {
 
   startSimulation() {
     this.simulationService.enableSimulation().subscribe(
-
+      response => {
+        console.log('next ág');
+      },
+      error => {
+        console.log('error ág');
+        console.warn(error);
+      }
     );
   }
 
