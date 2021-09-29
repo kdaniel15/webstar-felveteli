@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { CharacterPickerComponent } from './components/character-picker/character-picker.component';
 import { BattleSimulationComponent } from './components/battle-simulation/battle-simulation.component';
+import {SwiperModule} from "swiper/angular";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BattleSimulationComponent } from './components/battle-simulation/battle
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        SwiperModule
     ],
   providers: [],
   bootstrap: [AppComponent]
