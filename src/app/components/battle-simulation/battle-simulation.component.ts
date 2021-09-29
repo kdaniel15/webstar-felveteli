@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {SimulationService} from "../../services/simulation.service";
 
 @Component({
   selector: 'app-battle-simulation',
@@ -8,9 +9,17 @@ import {Router} from "@angular/router";
 })
 export class BattleSimulationComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private simulationService: SimulationService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    this.startSimulation();
+  }
+
+  startSimulation() {
+    this.simulationService.enableSimulation().subscribe(
+
+    );
   }
 
   logout() {
