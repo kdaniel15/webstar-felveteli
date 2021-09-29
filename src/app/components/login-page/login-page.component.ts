@@ -22,6 +22,9 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem('token') != null) {
+      this.router.navigate(['/characters']);
+    }
   }
 
   login() {
@@ -32,6 +35,7 @@ export class LoginPageComponent implements OnInit {
         //const token = response.token;
         //console.log("mentés előtt" + localStorage.getItem('token'));
         localStorage.setItem('token', response.token);
+        localStorage.setItem('name',  response.user.lastName + " " + response.user.firstName);
         //console.log("mentés után" + localStorage.getItem('token'));
         if (localStorage.getItem('token') != null) {
           this.router.navigate(['/characters']);

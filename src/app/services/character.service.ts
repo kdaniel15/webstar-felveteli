@@ -14,13 +14,13 @@ export class CharacterService {
 
   constructor(private http: HttpClient) { }
 
-  fetchAllCharacters(): Observable<Array<CharacterListItemModel>> {
+  fetchAllCharacters(): Observable<any> {
     let headers = new HttpHeaders({
       'Applicant-id': '72fPqjKaG3ea2SR9',
       'Application-Authorization': 'Bearer ' + this.token
     });
     let options = { headers: headers };
-    return this.http.get<Array<CharacterListItemModel>>(getCharactersUrl, options);
+    return this.http.get(getCharactersUrl, options);
   }
 
 }

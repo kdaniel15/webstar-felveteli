@@ -13,7 +13,11 @@ export class BattleSimulationComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.startSimulation();
+    if (localStorage.getItem('token') == null) {
+      this.router.navigate(['login']);
+    } else {
+      this.startSimulation();
+    }
   }
 
   startSimulation() {
@@ -30,7 +34,7 @@ export class BattleSimulationComponent implements OnInit {
 
   logout() {
     localStorage.clear();
-    this.router.navigate(['/characters']);
+    this.router.navigate(['/login']);
   }
 
 }
