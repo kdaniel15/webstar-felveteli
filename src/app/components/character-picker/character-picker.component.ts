@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {CharacterService} from "../../services/character.service";
 import {CharacterListItemModel} from "../../models/characterListItem.model";
 import {Router} from "@angular/router";
-import Swiper, {SwiperOptions} from "swiper";
 
 @Component({
   selector: 'app-character-picker',
@@ -13,6 +12,8 @@ export class CharacterPickerComponent implements OnInit {
 
   characters: Array<CharacterListItemModel>;
   currentUserName: string = localStorage.getItem('name');
+  canSimulationBegin: boolean = false;
+  characterDisplayIndex: number = 0;
 
   constructor(private characterService: CharacterService,
               private router: Router) {
@@ -23,29 +24,7 @@ export class CharacterPickerComponent implements OnInit {
     if (localStorage.getItem('token') == null) {
       this.router.navigate(['login']);
     } else {
-      const swiper = new Swiper('.swiper', {
-        // Default parameters
-        slidesPerView: 1,
-        spaceBetween: 10,
-        // Responsive breakpoints
-        breakpoints: {
-          // when window width is >= 320px
-          320: {
-            slidesPerView: 2,
-            spaceBetween: 20
-          },
-          // when window width is >= 480px
-          480: {
-            slidesPerView: 3,
-            spaceBetween: 30
-          },
-          // when window width is >= 640px
-          640: {
-            slidesPerView: 4,
-            spaceBetween: 40
-          }
-        }
-      })
+      this.canSimulationBegin = false;
     }
   }
 
@@ -66,17 +45,15 @@ export class CharacterPickerComponent implements OnInit {
     );
   }
 
-  config: SwiperOptions = {
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
-    spaceBetween: 30
-  };
+  //TODO
+  validationBeforeSimulation() {
+    this.canSimulationBegin = true;
+  }
+
+  //TODO
+  addCharacter() {
+
+  }
 
   logout() {
     localStorage.clear();
@@ -85,6 +62,18 @@ export class CharacterPickerComponent implements OnInit {
 
   startSimulation() {
     this.router.navigate(['/simulation']);
+  }
+
+  nextCharacter() {
+    if (this.characterDisplayIndex < this.characters.length-1) {
+      this.characterDisplayIndex++;
+    }
+  }
+
+  previousCharacter() {
+    if (this.characterDisplayIndex > -1) {
+      this.characterDisplayIndex--;
+    }
   }
 
 }
