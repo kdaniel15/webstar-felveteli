@@ -1,3 +1,35 @@
 <div class="character-page">
-  <footer>Webstar Csoport Kft. - © Minden jog fenntartva</footer>
+  <div class="navbar">
+    <div class="user"><img src="assets/user.png" alt="user-icon">Felvételiző pilóta</div>
+    <div class="logout" (click)="logout()">Űrhajó elhagyása <img src="assets/logout.png" alt="logout-icon"></div>
+  </div>
+  <br>
+  <div class="cycle" *ngFor="let character of characters">
+    <div class="character-data">
+      <div class="title">Válassz két harcost az ellenkező oldalakból!</div>
+      <div class="side">
+        <div class="side-icon"></div>
+        <div class="side-title">OLDAL</div>
+        <div class="characters-side">{{character.side}}</div>
+      </div>
+      <div class="power">
+        <div class="power-icon"></div>
+        <div class="power-title">KÜLÖNLEGES ERŐ</div>
+        <div class="characters-power">{{character.power}}</div>
+      </div>
+      <div class="name">{{character.name}}</div>
+      <div class="chooser">Kiválasztom</div>
+      <div class="description">
+        <div class="description-icon"></div>
+        <div class="description-title">LEÍRÁS</div>
+        <div class="description-body">{{character.description}}</div>
+      </div>
+    </div>
+    <div class="swiper">
+
+    </div>
+  </div>
+  <div class="simulation-btn" (click)="startSimulation()">küzdelem szimulálása</div>
+  <br>
+  <footer class="footer">Webstar Csoport Kft. - © Minden jog fenntartva</footer>
 </div>

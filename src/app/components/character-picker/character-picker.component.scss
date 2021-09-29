@@ -1,5 +1,5 @@
 .character-page {
-  background-image: url(~src/assets/bg_2@2x.png);
+  background-image: url(~src/assets/bg_2.png);
   height: 100vh;
   width: 100%;
   background-size: cover;
@@ -9,5 +9,69 @@
 footer {
   font-family: Poppinsregular;
   font-size: 12px;
+  color: #FFFFFF;
+}
+
+.navbar {
+  font-family: Poppinsbold;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.user {
+  float: left;
+}
+
+.logout {
+  float: right;
+}
+
+.name {
+  font-family: Starjedi;
+  font-size: 90px;
+  color: #FFFFFF;
+}
+
+.simulation-btn {
+  font-family: Starjedi;
+  font-size: 20px;
+  color: #000000;
+  background-image: linear-gradient(to right, #00D2FF , #FF3232);
+  width: 20%;
+}
+
+.side-title, .power-title {
+  font-family: Poppinsbold;
+  font-size: 16px;
+  color: #F7B500;
+}
+
+.characters-side, .characters-power {
+  font-family: Poppinsblack;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.chooser {
+  font-family: Poppinsbold;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.description-title {
+  font-family: Poppinsbold;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.description-body {
+  font-family: Poppinsregular;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.title {
+  font-family: Poppinsblack;
+  font-size: 24px;
   color: #FFFFFF;
 }

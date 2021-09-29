@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {CharacterService} from "../../services/character.service";
+import {CharacterListItemModel} from "../../models/characterListItem.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-character-picker',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterPickerComponent implements OnInit {
 
-  constructor() { }
+  characters: Array<CharacterListItemModel> = [];
+
+  constructor(private characterService: CharacterService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    this.fetchAllCharacters();
+  }
+
+  fetchAllCharacters() {
+    this.characterService.fetchAllCharacters().subscribe(
+      (data) => {
+        //console.log('next ág');
+        this.characters = data;
+        //console.log(this.characters);
+      },
+      error => {
+        //console.log('error ág');
+        //console.warn(error);
+      }
+    );
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/characters']);
+  }
+
+  startSimulation() {
+    this.router.navigate(['/simulation']);
   }
 
 }
