@@ -3,6 +3,15 @@ import {CharacterService} from "../../services/character.service";
 import {CharacterListItemModel} from "../../models/characterListItem.model";
 import {Router} from "@angular/router";
 
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Mousewheel,
+  Keyboard,
+} from "swiper";
+
+SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
+
 @Component({
   selector: 'app-character-picker',
   templateUrl: './character-picker.component.html',
@@ -65,13 +74,15 @@ export class CharacterPickerComponent implements OnInit {
   }
 
   nextCharacter() {
+    console.log('next');
     if (this.characterDisplayIndex < this.characters.length-1) {
       this.characterDisplayIndex++;
     }
   }
 
   previousCharacter() {
-    if (this.characterDisplayIndex > -1) {
+    console.log('previous');
+    if (this.characterDisplayIndex > 0) {
       this.characterDisplayIndex--;
     }
   }

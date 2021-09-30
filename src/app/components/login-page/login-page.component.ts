@@ -11,6 +11,8 @@ import {UserService} from "../../services/user.service";
 export class LoginPageComponent implements OnInit {
 
   loginForm: FormGroup;
+  showError: boolean = false;
+  errorMessage: string;
 
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
@@ -34,6 +36,7 @@ export class LoginPageComponent implements OnInit {
         console.log("next ág");
         //const token = response.token;
         //console.log("mentés előtt" + localStorage.getItem('token'));
+        this.showError = false;
         localStorage.setItem('token', response.token);
         localStorage.setItem('name',  response.user.lastName + " " + response.user.firstName);
         //console.log("mentés után" + localStorage.getItem('token'));
@@ -41,7 +44,12 @@ export class LoginPageComponent implements OnInit {
           this.router.navigate(['/characters']);
         }
       },
-      () => console.log('error ág'),
+      errorResponse => {
+        //console.log('error ág');
+        this.showError = true;
+        this.errorMessage = errorResponse.error.error;
+        console.log(this.errorMessage);
+      },
       () => console.log('complete ág')
     )
   }

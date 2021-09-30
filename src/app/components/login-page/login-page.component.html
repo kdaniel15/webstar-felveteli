@@ -3,19 +3,27 @@
   <p class="front">Frontend</p>
   <div class="loginForm">
     <form [formGroup]="loginForm" (ngSubmit)="login()">
-      <label for="user">Felhasználónév</label>
-      <br>
-      <input type="text" id="user" formControlName="username">
-      <br>
+      <div class="user">
+        <label for="user">Felhasználónév</label>
+        <br>
+        <input type="text" id="user" formControlName="username">
+      </div>
 
-      <label for="password">Jelszó</label>
       <br>
-      <input type="password" id="password" formControlName="password">
+      <div class="password">
+        <label for="password">Jelszó</label>
+        <br>
+        <input type="password" id="password" formControlName="password">
+      </div>
       <br>
 
       <button id="submitBtn" type="submit">Belépés</button>
+      <br>
+      <small *ngIf="showError" class="error-message">{{errorMessage}}</small>
     </form>
   </div>
-  <footer>Webstar Csoport Kft. - © Minden jog fenntartva</footer>
+  <div class="footer">
+    <footer>Webstar Csoport Kft. - © Minden jog fenntartva</footer>
+  </div>
 </div>
 

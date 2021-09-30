@@ -1,20 +1,27 @@
 <div class="character-page">
 
   <div class="navbar">
-    <div class="user"><img src="" alt="user-icon">{{currentUserName}}</div>
-    <div class="logout" (click)="logout()">Űrhajó elhagyása <img src="" alt="logout-icon"></div>
+    <div class="user"><img src="assets/user.png" alt="user-icon">{{currentUserName}}</div>
+    <div class="logout" (click)="logout()">Űrhajó elhagyása <img src="assets/logout.png" alt="logout-icon"></div>
   </div>
 
   <br>
 
   <div class="wrapper">
-
     <div class="swiper">
-      <swiper>
-        <ng-template swiperSlide>
-          <img src="assets/{{characters[characterDisplayIndex].id}}.png" alt="character-pic">
-        </ng-template>
-      </swiper>
+    <div class="swiper-button-next" (click)="nextCharacter()"></div>
+    <div class="swiper-button-prev" (click)="previousCharacter()"></div>
+    <swiper
+      [cssMode]="true"
+      [navigation]="true"
+      [pagination]="true"
+    >
+
+      <ng-template swiperSlide>
+        <img id="sliderImg" src="assets/{{characters[characterDisplayIndex].id}}.png" alt="character-pic">
+      </ng-template>
+
+    </swiper>
     </div>
 
     <div class="cycle">
@@ -39,14 +46,10 @@
         </div>
       </div>
 
-      <button (click)="previousCharacter()">PREVIOUS</button>
-      <button (click)="nextCharacter()">NEXT</button>
-
-    </div>
-
   </div>
 
   <button *ngIf="canSimulationBegin == true" class="simulation-btn" (click)="startSimulation()">Küzdelem szimulálása</button>
 
+</div>
 </div>
 
