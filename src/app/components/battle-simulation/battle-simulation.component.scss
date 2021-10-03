@@ -52,11 +52,6 @@ footer {
   color: #FFFFFF;
 }
 
-img {
-  height: 100px;
-  width: 100px;
-}
-
 .percentage-bar {
   font-family: Poppinsbold;
   font-size: 24px;
@@ -80,6 +75,11 @@ img {
 
 .battle-description {
   display: flex;
+}
+
+#light, #dark {
+  height: 500px;
+  width: 500px;
 }
 
 

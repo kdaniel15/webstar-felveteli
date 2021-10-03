@@ -34,11 +34,6 @@ export class BattleSimulationComponent implements OnInit {
       this.setFighterSideAndId();
       console.log(this.selectedCharacters);
       this.startSimulation();
-      setTimeout(() =>{
-        if (this.simulationId != null) {
-          this.startBattle();
-        }
-      }, 2000)
     }
   }
 
@@ -55,6 +50,7 @@ export class BattleSimulationComponent implements OnInit {
         this.simulationId = response;
         console.log(this.simulationId);
         console.log('next ág');
+        this.startBattle();
       },
       error => {
         console.log('error ág');
@@ -66,7 +62,18 @@ export class BattleSimulationComponent implements OnInit {
 
   startBattle() {
     console.log("Battle started!");
-
+    let rand = Math.floor(Math.random() * (1 + 1));
+    let damage = 20;
+    while (this.fighterDarkHealth > 0 || this.fighterLightHealth > 0) {
+        if (rand == 0) {
+          this.fighterLightHealth = this.fighterLightHealth - damage;
+          this.fighterDarkHealth = this.fighterDarkHealth - damage;
+        } else {
+          this.fighterDarkHealth = this.fighterDarkHealth - damage;
+          this.fighterLightHealth = this.fighterLightHealth - damage;
+        }
+    }
+    console.log("Battle ended!");
   }
 
   logout() {
