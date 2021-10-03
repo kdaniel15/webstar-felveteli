@@ -12,7 +12,7 @@ const getCharactersUrl = 'https://developer.webstar.hu/rest/frontend-felveteli/c
 export class CharacterService {
 
   private token = localStorage.getItem('token');
-  selectedCharacters: Array<CharacterListItemModel> = new Array<CharacterListItemModel>();
+  charactersToPass: Array<CharacterListItemModel>;
 
   constructor(private http: HttpClient) { }
 
@@ -26,13 +26,15 @@ export class CharacterService {
   }
 
   getSelectedCharacters(selected: Array<CharacterListItemModel>) {
+    let selectedCharacters: Array<CharacterListItemModel> = new Array<CharacterListItemModel>();
     for (let i = 0; i < selected.length; i++) {
-      this.selectedCharacters.push(selected[i]);
+      selectedCharacters.push(selected[i]);
     }
+    this.charactersToPass = selectedCharacters;
   }
 
   passSelectedCharacters() {
-    return this.selectedCharacters;
+    return this.charactersToPass;
   }
 
 }

@@ -26,4 +26,60 @@ footer {
   color: #FFFFFF;
 }
 
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 5px;
+  margin-right: 15px;
+}
+
+.title-result {
+  font-family: Starjedi;
+  font-size: 60px;
+  color: #FFFFFF;
+}
+
+.fighter-side {
+  font-family: Poppinsblack;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+.fighter-name {
+  font-family: Starjedi;
+  font-size: 40px;
+  color: #FFFFFF;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+.percentage-bar {
+  font-family: Poppinsbold;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+.versus {
+  font-family: Distantgalaxy;
+  font-size: 150px;
+  color: #FFFFFF;
+  margin: auto;
+}
+
+.dark-side {
+  margin: auto;
+}
+
+.light-side {
+  margin: auto;
+}
+
+.battle-description {
+  display: flex;
+}
+
 

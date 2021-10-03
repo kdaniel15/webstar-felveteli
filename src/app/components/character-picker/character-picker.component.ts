@@ -84,6 +84,7 @@ export class CharacterPickerComponent implements OnInit {
   }
 
   startSimulation() {
+    console.log(this.selectedCharacters);
     this.characterService.getSelectedCharacters(this.selectedCharacters);
     this.router.navigate(['/simulation']);
   }

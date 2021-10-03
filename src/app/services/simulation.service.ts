@@ -10,11 +10,15 @@ const simulationUrl = 'https://developer.webstar.hu/rest/frontend-felveteli/simu
 })
 export class SimulationService {
 
+  private token = localStorage.getItem('token');
+
   constructor(private http: HttpClient) { }
 
   enableSimulation(fighters: SelectedCharactersModel): Observable<any> {
     let headers = new HttpHeaders({
-      'Applicant-id': '72fPqjKaG3ea2SR9'});
+      'Applicant-id': '72fPqjKaG3ea2SR9',
+      'Application-Authorization': 'Bearer ' + this.token
+    });
     let options = { headers: headers };
     return this.http.post(simulationUrl, fighters, options);
   }

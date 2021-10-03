@@ -3,6 +3,31 @@
     <div class="user"><img src="assets/user.png" alt="user-icon">Felvételiző pilóta</div>
     <div class="logout" (click)="logout()">Űrhajó elhagyása <img src="assets/logout.png" alt="logout-icon"></div>
   </div>
+  <div class="battle-in-progress-container" *ngIf="isBattleOver == false">
+    <div class="title-result">A tudás legyen veled!</div>
+    <div class="battle-description">
+      <div class="dark-side">
+        <div class="fighter-side">Sötét oldal</div>
+        <div class="fighter-image"><img src="assets/{{selectedCharacters[0].id}}.png" alt="dark-side-fighter-picture"></div>
+        <div class="fighter-name" [innerHTML]="selectedCharacters[0].name.toLowerCase()"></div>
+        <div class="progress-bar">progress bar</div>
+        <div class="percentage-bar">{{fighterDarkHealth}}%</div>
+      </div>
+      <div class="versus">
+        VS
+      </div>
+      <div class="light-side">
+        <div class="fighter-side">Világos oldal</div>
+        <div class="fighter-image"><img src="assets/{{selectedCharacters[1].id}}.png" alt="light-side-fighter-picture"></div>
+        <div class="fighter-name" [innerHTML]="selectedCharacters[1].name.toLowerCase()"></div>
+        <div class="progress-bar">progress bar</div>
+        <div class="percentage-bar">{{fighterLightHealth}}%</div>
+      </div>
+    </div>
+  </div>
+  <div class="battle-over" *ngIf="isBattleOver == true">
+    <div class="title-result">A csata nyertese</div>
+  </div>
   <br>
   <footer class="footer">Webstar Csoport Kft. - © Minden jog fenntartva</footer>
 </div>
