@@ -31,7 +31,7 @@ footer {
 }
 
 hr {
-  width: 80%;
+  width: 85%;
 }
 
 #userImg {
@@ -80,6 +80,7 @@ hr {
   color: #FFFFFF;
   border: 2px solid #F7B500;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .description-title {
@@ -188,4 +189,8 @@ footer {
 
 .side {
   padding-bottom: 30px;
+}
+
+#right-arrow {
+  transform: scaleX(-1);
 }

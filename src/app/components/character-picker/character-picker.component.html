@@ -32,8 +32,8 @@
     </div>
 
     <div class="swiper">
-    <div class="swiper-button-next" (click)="nextCharacter()"></div>
-    <div class="swiper-button-prev" (click)="previousCharacter()"></div>
+    <div><img id="right-arrow" (click)="nextCharacter()" class="swiper-button-next" src="assets/arrow_circle.png" alt="right-arrow"></div>
+    <div><img (click)="previousCharacter()" class="swiper-button-prev" src="assets/arrow_circle.png" alt="left-arrow"></div>
     <swiper
       [cssMode]="true"
       [navigation]="true"
