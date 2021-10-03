@@ -8,8 +8,8 @@
 
 //TODO
 #sliderImg {
-  width: 100px;
-  height: 100px;
+  width: 500px;
+  height: 500px;
 }
 
 swiper {
@@ -27,13 +27,32 @@ footer {
   font-family: Poppinsbold;
   font-size: 16px;
   color: #FFFFFF;
+  padding-bottom: 40px;
+}
+
+hr {
+  width: 80%;
+}
+
+#userImg {
+  padding-right: 15px;
+}
+
+#logoutImg {
+  padding-left: 15px;
 }
 
 .user {
+  padding-top: 15px;
+  padding-bottom: 25px;
+  padding-left: 140px;
   float: left;
 }
 
 .logout {
+  padding-top: 15px;
+  padding-bottom: 25px;
+  padding-right: 140px;
   float: right;
 }
 
@@ -41,14 +60,6 @@ footer {
   font-family: Starjedi;
   font-size: 90px;
   color: #FFFFFF;
-}
-
-.simulation-btn {
-  font-family: Starjedi;
-  font-size: 20px;
-  color: #000000;
-  background-image: linear-gradient(to right, #00D2FF , #FF3232);
-  width: 20%;
 }
 
 .side-title, .power-title {
@@ -67,6 +78,8 @@ footer {
   font-family: Poppinsbold;
   font-size: 16px;
   color: #FFFFFF;
+  border: 2px solid #F7B500;
+  border-radius: 5px;
 }
 
 .description-title {
@@ -85,6 +98,8 @@ footer {
   font-family: Poppinsblack;
   font-size: 24px;
   color: #FFFFFF;
+  padding-bottom: 40px;
+  padding-left: 45px;
 }
 
 .swiper {
@@ -125,4 +140,52 @@ footer {
 
 .swiper {
   right: 0;
+}
+
+.character-image {
+  background-color: #F7B500;
+  border-radius: 50%;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.swiper {
+  margin: 0;
+}
+
+.character-data {
+  margin: 0;
+}
+
+.simulation-btn {
+  font-family: Starjedi;
+  font-size: 20px;
+  color: #000000;
+  background-image: linear-gradient(to right, #00D2FF , #FF3232);
+  width: 20%;
+  position: fixed;
+  bottom: 0;
+  border: none;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+footer {
+  font-family: Poppinsregular;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 5px;
+  margin-right: 15px;
+}
+
+.side {
+  padding-bottom: 30px;
 }

@@ -9,7 +9,9 @@
     <div class="battle-description">
       <div class="dark-side">
         <div class="fighter-side">Sötét oldal</div>
-        <div class="fighter-image"><img id="dark" src="assets/{{selectedCharacters[0].id}}.png" alt="dark-side-fighter-picture"></div>
+        <div class="dark-fighter-image">
+          <img id="dark" src="assets/{{selectedCharacters[0].id}}.png" alt="dark-side-fighter-picture">
+        </div>
         <div class="fighter-name" [innerHTML]="selectedCharacters[0].name.toLowerCase()"></div>
         <div class="progress-bar">progress bar</div>
         <div class="percentage-bar">{{fighterDarkHealth}}%</div>
@@ -19,8 +21,8 @@
       </div>
       <div class="light-side">
         <div class="fighter-side">Világos oldal</div>
-        <div class="fighter-image"><img id="light" src="assets/{{selectedCharacters[1].id}}.png" alt="light-side-fighter-picture"></div>
-        <div class="fighter-name" [innerText]="selectedCharacters[1].name.toLowerCase()"></div>
+        <div class="light-fighter-image"><img id="light" src="assets/{{selectedCharacters[1].id}}.png" alt="light-side-fighter-picture"></div>
+        <div class="fighter-name" [innerHTML]="selectedCharacters[1].name.toLowerCase()"></div>
         <div class="progress-bar">progress bar</div>
         <div class="percentage-bar">{{fighterLightHealth}}%</div>
       </div>

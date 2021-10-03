@@ -1,13 +1,36 @@
 <div class="character-page">
 
   <div class="navbar">
-    <div class="user"><img src="assets/user.png" alt="user-icon">{{currentUserName}}</div>
-    <div class="logout" (click)="logout()">Űrhajó elhagyása <img src="assets/logout.png" alt="logout-icon"></div>
+    <div class="user"><img id="userImg" src="assets/user.png" alt="user-icon">{{currentUserName}}</div>
+    <div class="logout" (click)="logout()">Űrhajó elhagyása <img id="logoutImg" src="assets/logout.png" alt="logout-icon"></div>
   </div>
 
+  <hr>
   <br>
 
   <div class="wrapper">
+
+    <div class="character-data">
+      <div class="title">Válassz két harcost az ellenkező oldalakból!</div>
+      <div class="side">
+        <div class="side-icon"></div>
+        <div class="side-title">OLDAL</div>
+        <div class="characters-side">{{characters[characterDisplayIndex].side}}</div>
+      </div>
+      <div class="power">
+        <div class="power-icon"></div>
+        <div class="power-title">KÜLÖNLEGES ERŐ</div>
+        <div class="characters-power">{{characters[characterDisplayIndex].power}}</div>
+      </div>
+      <span class="name" [innerHTML]="characters[characterDisplayIndex].name.toLowerCase()"></span>
+      <div class="chooser" (click)="addCharacter()">Kiválasztom</div>
+      <div class="description">
+        <div class="description-icon"></div>
+        <div class="description-title">LEÍRÁS</div>
+        <div class="description-body">{{characters[characterDisplayIndex].description}}</div>
+      </div>
+    </div>
+
     <div class="swiper">
     <div class="swiper-button-next" (click)="nextCharacter()"></div>
     <div class="swiper-button-prev" (click)="previousCharacter()"></div>
@@ -18,38 +41,19 @@
     >
 
       <ng-template swiperSlide>
-        <img id="sliderImg" src="assets/{{characters[characterDisplayIndex].id}}.png" alt="character-pic">
+        <div class="character-image">
+          <img id="sliderImg" src="assets/{{characters[characterDisplayIndex].id}}.png" alt="character-pic">
+        </div>
       </ng-template>
 
     </swiper>
     </div>
 
-    <div class="cycle">
-      <div class="character-data">
-        <div class="title">Válassz két harcost az ellenkező oldalakból!</div>
-        <div class="side">
-          <div class="side-icon"></div>
-          <div class="side-title">OLDAL</div>
-          <div class="characters-side">{{characters[characterDisplayIndex].side}}</div>
-        </div>
-        <div class="power">
-          <div class="power-icon"></div>
-          <div class="power-title">KÜLÖNLEGES ERŐ</div>
-          <div class="characters-power">{{characters[characterDisplayIndex].power}}</div>
-        </div>
-        <span class="name" [innerHTML]="characters[characterDisplayIndex].name.toLowerCase()"></span>
-        <div class="chooser" (click)="addCharacter()">Kiválasztom</div>
-        <div class="description">
-          <div class="description-icon"></div>
-          <div class="description-title">LEÍRÁS</div>
-          <div class="description-body">{{characters[characterDisplayIndex].description}}</div>
-        </div>
-      </div>
-
   </div>
 
   <button *ngIf="canSimulationBegin == true" class="simulation-btn" (click)="startSimulation()">Küzdelem szimulálása</button>
-
-</div>
+  <div class="footer">
+    <footer>Webstar Csoport Kft. - © Minden jog fenntartva</footer>
+  </div>
 </div>
 
