@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CharacterListItemModel} from "../models/characterListItem.model";
-import {SelectedCharactersModel} from "../models/selectedCharacters.model";
 
 const getCharactersUrl = 'https://developer.webstar.hu/rest/frontend-felveteli/characters/';
 
@@ -12,7 +11,8 @@ const getCharactersUrl = 'https://developer.webstar.hu/rest/frontend-felveteli/c
 export class CharacterService {
 
   private token = localStorage.getItem('token');
-  charactersToPass: Array<CharacterListItemModel>;
+  lightSideFighter: CharacterListItemModel;
+  darkSideFighter: CharacterListItemModel;
 
   constructor(private http: HttpClient) { }
 
@@ -26,15 +26,13 @@ export class CharacterService {
   }
 
   getSelectedCharacters(selected: Array<CharacterListItemModel>) {
-    let selectedCharacters: Array<CharacterListItemModel> = new Array<CharacterListItemModel>();
-    for (let i = 0; i < selected.length; i++) {
-      selectedCharacters.push(selected[i]);
+    if (selected[0].side == 'DARK') {
+        this.darkSideFighter = selected[0];
+        this.lightSideFighter = selected[1];
+    } else {
+        this.lightSideFighter = selected[0];
+        this.darkSideFighter = selected[1];
     }
-    this.charactersToPass = selectedCharacters;
-  }
-
-  passSelectedCharacters() {
-    return this.charactersToPass;
   }
 
 }

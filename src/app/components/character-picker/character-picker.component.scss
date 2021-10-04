@@ -6,7 +6,6 @@
   text-align: center;
 }
 
-//TODO
 #sliderImg {
   width: 500px;
   height: 500px;
@@ -24,14 +23,19 @@ footer {
 }
 
 .navbar {
+  display: flex;
+  justify-content: space-between;
   font-family: Poppinsbold;
   font-size: 16px;
   color: #FFFFFF;
-  padding-bottom: 40px;
+  padding-top: 5px;
+  padding-left: 140px;
+  padding-right: 140px;
+  width: 80%;
 }
 
 hr {
-  width: 85%;
+  width: 80%;
 }
 
 #userImg {
@@ -43,17 +47,15 @@ hr {
 }
 
 .user {
-  padding-top: 15px;
-  padding-bottom: 25px;
-  padding-left: 140px;
-  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logout {
-  padding-top: 15px;
-  padding-bottom: 25px;
-  padding-right: 140px;
-  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .name {
@@ -100,7 +102,6 @@ hr {
   font-size: 24px;
   color: #FFFFFF;
   padding-bottom: 40px;
-  padding-left: 45px;
 }
 
 .swiper {
@@ -108,48 +109,35 @@ hr {
   height: 100%;
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
+.arrows {
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.cycle {
-  left: 0;
-}
-
-.swiper {
-  right: 0;
 }
 
 .character-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    z-index: 1;
+  }
+}
+
+.yellow-circle {
+  position: absolute;
+  left: 100px;
   background-color: #F7B500;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
+  z-index: 0;
+  opacity: 100%;
 }
 
 .wrapper {
   display: flex;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
 .swiper {
@@ -164,13 +152,15 @@ hr {
   font-family: Starjedi;
   font-size: 20px;
   color: #000000;
-  background-image: linear-gradient(to right, #00D2FF , #FF3232);
+  background-image: linear-gradient(to right, #00D2FF, #FF3232);
   width: 20%;
   position: fixed;
   bottom: 0;
   border: none;
   justify-content: center;
-  border-radius: 8px;
+  //border-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 footer {
@@ -194,3 +184,26 @@ footer {
 #right-arrow {
   transform: scaleX(-1);
 }
+
+.description-icon {
+    background-color: #F7B500;
+    border: 5px solid #333333;
+    height: 50px;
+    width: 50px;
+}
+
+.side-icon {
+  background-color: #000000;
+  border: 5px solid #FFFFFF;
+  height: 50px;
+  width: 50px;
+}
+
+.power-icon {
+  background-color: #F7B500;
+  height: 50px;
+  width: 50px;
+}
+
+
+

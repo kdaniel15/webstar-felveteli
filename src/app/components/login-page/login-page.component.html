@@ -1,7 +1,10 @@
 <div class="login-page">
+
   <p class="web">Webstar</p>
   <p class="front">Frontend</p>
+
   <div class="loginForm">
+
     <form [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="user">
         <label for="user">Felhasználónév</label>
@@ -15,13 +18,15 @@
         <br>
         <input type="password" id="password" formControlName="password">
       </div>
-      <br>
 
+      <br>
       <button id="submitBtn" type="submit">Belépés</button>
+
       <br>
       <small *ngIf="showError" class="error-message">{{errorMessage}}</small>
     </form>
   </div>
+
   <div class="footer">
     <footer>Webstar Csoport Kft. - © Minden jog fenntartva</footer>
   </div>

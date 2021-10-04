@@ -7,17 +7,39 @@
 }
 
 .user {
-  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logout {
-  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#userImg {
+  padding-right: 15px;
+}
+
+#logoutImg {
+  padding-left: 15px;
 }
 
 .navbar {
+  display: flex;
+  justify-content: space-between;
   font-family: Poppinsbold;
   font-size: 16px;
   color: #FFFFFF;
+  padding-top: 5px;
+  padding-left: 140px;
+  padding-right: 140px;
+  width: 80%;
+}
+
+hr {
+  width: 80%;
 }
 
 footer {
@@ -82,6 +104,10 @@ footer {
   width: 500px;
 }
 
+#dark {
+  transform: scaleX(-1);
+}
+
 .dark-fighter-image {
   background-color: #333333;
   border-radius: 50%;
@@ -90,5 +116,37 @@ footer {
 .light-fighter-image {
   background-color: #FFFFFF;
   border-radius: 50%;
+}
+
+.progress-bar{
+  width: 300px;
+  height: 20px;
+  background-color: #fff;
+  transition: background-color 1s;
+  .progress-bar-width{
+    background-color: red;
+    width: 100%;
+    height: 20px;
+  }
+}
+
+#winner-image {
+  height: 250px;
+  width: 250px;
+}
+
+.winner-name{
+  font-family: Starjedi;
+  color: #FFFFFF;
+  font-size: 40px;
+}
+
+.play-again-btn {
+  background-color: #F7B500;
+  border-radius: 5px;
+  color: black;
+  font-family: Poppinsbold;
+  font-size: 16px;
+  cursor: pointer;
 }
 

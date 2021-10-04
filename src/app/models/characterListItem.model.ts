@@ -4,4 +4,5 @@ export interface CharacterListItemModel {
   side: string;
   power: string;
   description: string;
+  isSelected?: boolean;
 }

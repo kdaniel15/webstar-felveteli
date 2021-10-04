@@ -12,11 +12,15 @@ import {SelectedCharactersModel} from "../../models/selectedCharacters.model";
 })
 export class BattleSimulationComponent implements OnInit {
 
-  selectedCharacters: Array<CharacterListItemModel>;
+  currentUserName: string = localStorage.getItem('name');
+  fighterDarkSide: CharacterListItemModel;
+  fighterDarkHealth: number = 100;
+  fighterLightSide: CharacterListItemModel;
+  fighterLightHealth: number = 100;
   fighterSideAndId: SelectedCharactersModel = {};
   simulationId: string;
-  fighterDarkHealth: number = 100;
-  fighterLightHealth: number = 100;
+  winnerFighter: CharacterListItemModel;
+
   isBattleOver: boolean = false;
 
   constructor(private simulationService: SimulationService,
@@ -28,20 +32,20 @@ export class BattleSimulationComponent implements OnInit {
     if (localStorage.getItem('token') == null) {
       this.router.navigate(['login']);
     } else {
-      this.selectedCharacters = new Array<CharacterListItemModel>();
-      console.log(this.selectedCharacters);
+      //this.selectedCharacters = new Array<CharacterListItemModel>();
+      this.fighterDarkSide = this.characterService.darkSideFighter;
+      this.fighterLightSide = this.characterService.lightSideFighter;
+      //console.log(this.selectedCharacters);
       console.log(this.isBattleOver);
       this.setFighterSideAndId();
-      console.log(this.selectedCharacters);
+      //console.log(this.selectedCharacters);
       this.startSimulation();
     }
   }
 
   setFighterSideAndId() {
-    this.selectedCharacters = this.characterService.passSelectedCharacters();
-    console.log(this.selectedCharacters);
-    this.fighterSideAndId.dark = this.selectedCharacters[0].id;
-    this.fighterSideAndId.light = this.selectedCharacters[1].id;
+    this.fighterSideAndId.dark = this.characterService.darkSideFighter.id;
+    this.fighterSideAndId.light = this.characterService.lightSideFighter.id;
   }
 
   startSimulation() {
@@ -62,18 +66,35 @@ export class BattleSimulationComponent implements OnInit {
 
   startBattle() {
     console.log("Battle started!");
-    let rand = Math.floor(Math.random() * (1 + 1));
     let damage = 20;
-    while (this.fighterDarkHealth > 0 || this.fighterLightHealth > 0) {
+
+    let i = 0;
+    while (i < 10) {
+      let rand = Math.floor(Math.random() * (1 + 1));
+      if (this.fighterLightHealth > 0 && this.fighterDarkHealth > 0) {
         if (rand == 0) {
-          this.fighterLightHealth = this.fighterLightHealth - damage;
-          this.fighterDarkHealth = this.fighterDarkHealth - damage;
+          this.fighterLightHealth -= damage;
+          console.log('light health' + this.fighterLightHealth);
         } else {
-          this.fighterDarkHealth = this.fighterDarkHealth - damage;
-          this.fighterLightHealth = this.fighterLightHealth - damage;
+          this.fighterDarkHealth -=damage;
+          console.log('dark health' + this.fighterDarkHealth);
         }
+      } else {
+        //this.isBattleOver = true;
+      }
+      i++;
     }
-    console.log("Battle ended!");
+    if (this.fighterLightHealth > 0) {
+      this.winnerFighter = this.fighterLightSide;
+    } else {
+      this.winnerFighter = this.fighterDarkSide;
+    }
+    console.log("Battle ended!")
+    this.isBattleOver = true;
+  }
+
+  navigateToChoosing() {
+    this.router.navigate(['/characters']);
   }
 
   logout() {

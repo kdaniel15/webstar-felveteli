@@ -1,19 +1,32 @@
 <div class="battle-simulation-page">
+
   <div class="navbar">
-    <div class="user"><img src="assets/user.png" alt="user-icon">Felvételiző pilóta</div>
-    <div class="logout" (click)="logout()">Űrhajó elhagyása <img src="assets/logout.png" alt="logout-icon"></div>
+    <div class="user">
+      <img id="userImg" src="assets/user.png" alt="user-icon">
+      <p>{{currentUserName}}</p>
+    </div>
+
+    <div class="logout" (click)="logout()">
+      <p>Űrhajó elhagyása</p>
+      <img id="logoutImg" src="assets/logout.png" alt="logout-icon">
+    </div>
   </div>
+  <hr>
   <br>
+
   <div class="battle-in-progress-container" *ngIf="isBattleOver == false">
+
     <div class="title-result">A tudás legyen veled!</div>
     <div class="battle-description">
       <div class="dark-side">
         <div class="fighter-side">Sötét oldal</div>
         <div class="dark-fighter-image">
-          <img id="dark" src="assets/{{selectedCharacters[0].id}}.png" alt="dark-side-fighter-picture">
+          <img id="dark" src="assets/{{fighterDarkSide.id}}.png" alt="dark-side-fighter-picture">
         </div>
-        <div class="fighter-name" [innerHTML]="selectedCharacters[0].name.toLowerCase()"></div>
-        <div class="progress-bar">progress bar</div>
+        <div class="fighter-name" [innerHTML]="fighterDarkSide.name.toLowerCase()"></div>
+        <div class="progress-bar">
+          <div [ngStyle]="{width: fighterDarkHealth}" class="progress-bar-width"></div>
+        </div>
         <div class="percentage-bar">{{fighterDarkHealth}}%</div>
       </div>
       <div class="versus">
@@ -21,16 +34,28 @@
       </div>
       <div class="light-side">
         <div class="fighter-side">Világos oldal</div>
-        <div class="light-fighter-image"><img id="light" src="assets/{{selectedCharacters[1].id}}.png" alt="light-side-fighter-picture"></div>
-        <div class="fighter-name" [innerHTML]="selectedCharacters[1].name.toLowerCase()"></div>
-        <div class="progress-bar">progress bar</div>
+        <div class="light-fighter-image"><img id="light" src="assets/{{fighterLightSide.id}}.png" alt="light-side-fighter-picture"></div>
+        <div class="fighter-name" [innerHTML]="fighterLightSide.name.toLowerCase()"></div>
+        <div class="progress-bar">
+          <div [ngStyle]="{width: fighterLightHealth}" class="progress-bar-width"></div>
+        </div>
         <div class="percentage-bar">{{fighterLightHealth}}%</div>
       </div>
     </div>
   </div>
+
   <div class="battle-over" *ngIf="isBattleOver == true">
     <div class="title-result">A csata nyertese</div>
+
+    <div class="winner-image-container">
+      <div class="side-circle"></div>
+      <img id="winner-image" src="assets/{{winnerFighter.id}}.png" alt="winner-picture">
+    </div>
+
+    <div class="winner-name" [innerHTML]="winnerFighter.name.toLowerCase()"></div>
+    <div class="play-again-btn" (click)="navigateToChoosing()">Vissza a fedélzetre</div>
   </div>
+
   <br>
   <footer class="footer">Webstar Csoport Kft. - © Minden jog fenntartva</footer>
 </div>
