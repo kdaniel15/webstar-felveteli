@@ -32,13 +32,9 @@ export class BattleSimulationComponent implements OnInit {
     if (localStorage.getItem('token') == null) {
       this.router.navigate(['login']);
     } else {
-      //this.selectedCharacters = new Array<CharacterListItemModel>();
       this.fighterDarkSide = this.characterService.darkSideFighter;
       this.fighterLightSide = this.characterService.lightSideFighter;
-      //console.log(this.selectedCharacters);
-      console.log(this.isBattleOver);
       this.setFighterSideAndId();
-      //console.log(this.selectedCharacters);
       this.startSimulation();
     }
   }
@@ -52,16 +48,18 @@ export class BattleSimulationComponent implements OnInit {
     this.simulationService.enableSimulation(this.fighterSideAndId).subscribe(
       response => {
         this.simulationId = response;
-        console.log(this.simulationId);
-        console.log('next ág');
         this.startBattle();
       },
       error => {
-        console.log('error ág');
         console.warn(error);
       }
     );
 
+  }
+
+  removeBrTag(name: string){
+    let taglessName = name.replace("<br>", " ");
+    return taglessName;
   }
 
   startBattle() {
@@ -90,7 +88,7 @@ export class BattleSimulationComponent implements OnInit {
       this.winnerFighter = this.fighterDarkSide;
     }
     console.log("Battle ended!")
-    this.isBattleOver = true;
+    //this.isBattleOver = true;
   }
 
   navigateToChoosing() {

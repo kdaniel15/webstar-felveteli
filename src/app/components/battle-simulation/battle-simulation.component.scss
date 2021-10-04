@@ -133,12 +133,21 @@ footer {
 #winner-image {
   height: 250px;
   width: 250px;
+  z-index: 1;
 }
 
 .winner-name{
   font-family: Starjedi;
   color: #FFFFFF;
   font-size: 40px;
+}
+
+.winner-side-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 100%;
 }
 
 .play-again-btn {
