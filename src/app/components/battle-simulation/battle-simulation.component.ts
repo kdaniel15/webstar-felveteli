@@ -48,7 +48,9 @@ export class BattleSimulationComponent implements OnInit {
     this.simulationService.enableSimulation(this.fighterSideAndId).subscribe(
       response => {
         this.simulationId = response;
-        this.startBattle();
+        this.delay(3000).then(() =>{
+          this.startBattle();
+        });
       },
       error => {
         console.warn(error);
@@ -60,6 +62,10 @@ export class BattleSimulationComponent implements OnInit {
   removeBrTag(name: string){
     let taglessName = name.replace("<br>", " ");
     return taglessName;
+  }
+
+  async delay(ms: number) {
+    await new Promise<void>(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log(""));
   }
 
   startBattle() {
@@ -88,7 +94,7 @@ export class BattleSimulationComponent implements OnInit {
       this.winnerFighter = this.fighterDarkSide;
     }
     console.log("Battle ended!")
-    //this.isBattleOver = true;
+    this.isBattleOver = true;
   }
 
   navigateToChoosing() {
