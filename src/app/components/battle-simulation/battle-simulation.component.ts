@@ -66,24 +66,24 @@ export class BattleSimulationComponent implements OnInit {
     console.log("Battle started!");
     let damage = 20;
 
-    let i = 0;
-    while (i < 10) {
-      let rand = Math.floor(Math.random() * (1 + 1));
-      if (this.fighterLightHealth > 0 && this.fighterDarkHealth > 0) {
-        if (rand == 0) {
-          this.fighterLightHealth -= damage;
-          console.log('light health' + this.fighterLightHealth);
+    for (let j = 0; j < 10; j++) {
+        let rand = Math.floor(Math.random() * (1 + 1));
+        if (this.fighterLightHealth > 0 && this.fighterDarkHealth > 0) {
+          if (rand == 0) {
+            this.fighterLightHealth -= damage;
+            console.log('light health' + this.fighterLightHealth);
+          } else {
+            this.fighterDarkHealth -=damage;
+            console.log('dark health' + this.fighterDarkHealth);
+          }
         } else {
-          this.fighterDarkHealth -=damage;
-          console.log('dark health' + this.fighterDarkHealth);
+          //this.isBattleOver = true;
         }
-      } else {
-        //this.isBattleOver = true;
-      }
-      i++;
     }
+
     if (this.fighterLightHealth > 0) {
       this.winnerFighter = this.fighterLightSide;
+
     } else {
       this.winnerFighter = this.fighterDarkSide;
     }
