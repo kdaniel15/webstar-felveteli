@@ -18,27 +18,44 @@
 
     <div class="character-data">
       <div class="title">Válassz két harcost az ellenkező oldalakból!</div>
+
       <div class="side">
         <div class="side-icon"></div>
-        <div class="side-title">OLDAL</div>
-        <div class="characters-side" [innerText]="characters[characterDisplayIndex].side == 'DARK' ? 'Sötét' : 'Világos'"></div>
+        <div>
+          <div class="side-title">OLDAL</div>
+          <div class="characters-side" [innerText]="characters[characterDisplayIndex].side == 'DARK' ? 'Sötét' : 'Világos'"></div>
+        </div>
       </div>
+
+      <br>
 
       <div class="power">
         <div class="power-icon">
-          <img src="../../../assets/star.png" alt="star-icon">
+          <img id="star-icon" src="../../../assets/star.png" alt="star-icon">
         </div>
-        <div class="power-title">KÜLÖNLEGES ERŐ</div>
-        <div class="characters-power">{{characters[characterDisplayIndex].power}}</div>
+        <div>
+          <div class="power-title">KÜLÖNLEGES ERŐ</div>
+          <div class="characters-power">{{characters[characterDisplayIndex].power}}</div>
+        </div>
       </div>
 
-      <span class="name" [innerHTML]="characters[characterDisplayIndex].name.toLowerCase()"></span>
-      <div class="chooser" (click)="addCharacter()" [ngStyle]="characters[characterDisplayIndex].isSelected == true ? {'background-color': '#F7B500', 'color': '#000000'} : {}">Kiválasztom</div>
+      <br>
+
+      <div class="name-wrapper">
+        <div class="name" [innerHTML]="characters[characterDisplayIndex].name.toLowerCase()"></div>
+      </div>
+
+      <br>
+
+      <div class="chooser" (click)="addCharacter()" [ngStyle]="characters[characterDisplayIndex].isSelected == true ? {'background-color': '#F7B500', 'color': '#000000'} : {}">
+          Kiválasztom
+      </div>
 
       <div class="description">
-        <div class="description-icon">
+        <div class="description-header">
+          <div class="description-icon"></div>
+          <div class="description-title">LEÍRÁS</div>
         </div>
-        <div class="description-title">LEÍRÁS</div>
         <div class="description-body">{{characters[characterDisplayIndex].description}}</div>
       </div>
     </div>
@@ -69,9 +86,14 @@
     </div>
   </div>
 
-  <button *ngIf="canSimulationBegin == true" class="simulation-btn" (click)="startSimulation()">Küzdelem szimulálása</button>
-  <div class="footer">
-    <footer>Webstar Csoport Kft. - © Minden jog fenntartva</footer>
+  <div class="footer-wrapper">
+    <div>
+      <button *ngIf="canSimulationBegin == true" class="simulation-btn" (click)="startSimulation()">Küzdelem szimulálása</button>
+    </div>
+    <div class="footer">
+      <footer>Webstar Csoport Kft. - © Minden jog fenntartva</footer>
+    </div>
   </div>
+
 </div>
 

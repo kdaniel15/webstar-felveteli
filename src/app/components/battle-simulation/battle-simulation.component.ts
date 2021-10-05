@@ -79,7 +79,7 @@ export class BattleSimulationComponent implements OnInit {
             this.fighterLightHealth -= damage;
             console.log('light health' + this.fighterLightHealth);
           } else {
-            this.fighterDarkHealth -=damage;
+            this.fighterDarkHealth -= damage;
             console.log('dark health' + this.fighterDarkHealth);
           }
         } else {
