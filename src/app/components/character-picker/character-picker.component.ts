@@ -43,7 +43,7 @@ export class CharacterPickerComponent implements OnInit {
         this.characters = data.characters;
       },
       error => {
-        console.warn(error);
+        console.log(error);
       }
     );
   }
@@ -61,7 +61,7 @@ export class CharacterPickerComponent implements OnInit {
         this.selectedCharacters.push(this.characters[this.characterDisplayIndex]);
         this.characters[this.characterDisplayIndex].isSelected = true;
       } else {
-        console.warn("You can't pick a second character from the same side of the force!");
+        window.alert("You can't pick a second character from the same side of the force!");
       }
     }
 

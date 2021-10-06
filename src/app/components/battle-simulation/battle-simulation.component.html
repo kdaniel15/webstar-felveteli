@@ -29,9 +29,11 @@
         </div>
         <div class="percentage-bar">{{fighterDarkHealth}}%</div>
       </div>
+
       <div class="versus">
         VS
       </div>
+
       <div class="light-side">
         <div class="fighter-side">Világos oldal</div>
         <div class="light-fighter-image"><img id="light" src="assets/{{fighterLightSide.id}}.png"
@@ -49,7 +51,7 @@
     <div class="title-result">A csata nyertese</div>
 
     <div class="winner-image-container">
-      <div class="winner-side-circle"
+      <div class="winner-side-circle" id="winner-side-circle"
            [ngStyle]="{'background-color': winnerFighter.side == 'DARK' ? '#333333' : '#FFFFFF'}"></div>
       <img id="winner-image" src="assets/{{winnerFighter.id}}.png" alt="winner-picture">
     </div>
