@@ -12,6 +12,9 @@ const loginUrl = 'https://developer.webstar.hu/rest/frontend-felveteli/authentic
 export class UserService {
 
   constructor(private http: HttpClient) {
+    setTimeout(() => {
+      localStorage.clear();
+    }, 1800000);
   }
 
   login(user: UserModel): Observable<LoginResponseModel> {
