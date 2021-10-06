@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
@@ -35,7 +35,7 @@ export class LoginPageComponent implements OnInit {
       response => {
         this.showError = false;
         localStorage.setItem('token', response.token);
-        localStorage.setItem('name',  response.user.lastName + " " + response.user.firstName);
+        localStorage.setItem('name', response.user.lastName + " " + response.user.firstName);
         if (localStorage.getItem('token') != null) {
           this.router.navigate(['/characters']);
         }

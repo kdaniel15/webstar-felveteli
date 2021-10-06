@@ -23,7 +23,8 @@
         <div class="side-icon"></div>
         <div>
           <div class="side-title">OLDAL</div>
-          <div class="characters-side" [innerText]="characters[characterDisplayIndex].side == 'DARK' ? 'Sötét' : 'Világos'"></div>
+          <div class="characters-side"
+               [innerText]="characters[characterDisplayIndex].side == 'DARK' ? 'Sötét' : 'Világos'"></div>
         </div>
       </div>
 
@@ -47,8 +48,9 @@
 
       <br>
 
-      <div class="chooser" (click)="addCharacter()" [ngStyle]="characters[characterDisplayIndex].isSelected == true ? {'background-color': '#F7B500', 'color': '#000000'} : {}">
-          Kiválasztom
+      <div class="chooser" (click)="addCharacter()"
+           [ngStyle]="characters[characterDisplayIndex].isSelected == true ? {'background-color': '#F7B500', 'color': '#000000'} : {}">
+        Kiválasztom
       </div>
 
       <div class="description">
@@ -63,7 +65,8 @@
     <div class="swiper">
       <div class="arrows">
         <div class="right-arrow">
-          <img id="right-arrow" (click)="nextCharacter()" class="swiper-button-next" src="assets/arrow_circle.png" alt="right-arrow">
+          <img id="right-arrow" (click)="nextCharacter()" class="swiper-button-next" src="assets/arrow_circle.png"
+               alt="right-arrow">
         </div>
         <div class="left-arrow">
           <img (click)="previousCharacter()" class="swiper-button-prev" src="assets/arrow_circle.png" alt="left-arrow">
@@ -78,7 +81,8 @@
       >
         <ng-template swiperSlide>
           <div class="character-image">
-            <div class="yellow-circle" id="yellow-circle" *ngIf="characters[characterDisplayIndex].isSelected == true"></div>
+            <div class="yellow-circle" id="yellow-circle"
+                 *ngIf="characters[characterDisplayIndex].isSelected == true"></div>
             <img id="sliderImg" src="assets/{{characters[characterDisplayIndex].id}}.png" alt="character-pic">
           </div>
         </ng-template>
@@ -88,7 +92,9 @@
 
   <div class="footer-wrapper">
     <div>
-      <button *ngIf="canSimulationBegin == true" class="simulation-btn" (click)="startSimulation()">Küzdelem szimulálása</button>
+      <button *ngIf="canSimulationBegin == true" class="simulation-btn" (click)="startSimulation()">Küzdelem
+        szimulálása
+      </button>
     </div>
     <div class="footer">
       <footer>Webstar Csoport Kft. - © Minden jog fenntartva</footer>

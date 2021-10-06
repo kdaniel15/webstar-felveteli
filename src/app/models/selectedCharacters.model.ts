@@ -1,4 +1,4 @@
-export interface SelectedCharactersModel{
+export interface SelectedCharactersModel {
   dark?: string;
   light?: string;
 }

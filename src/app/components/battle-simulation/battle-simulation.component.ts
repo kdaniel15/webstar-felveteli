@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {SimulationService} from "../../services/simulation.service";
 import {CharacterService} from "../../services/character.service";
@@ -48,7 +48,7 @@ export class BattleSimulationComponent implements OnInit {
     this.simulationService.enableSimulation(this.fighterSideAndId).subscribe(
       response => {
         this.simulationId = response;
-        this.delay(3000).then(() =>{
+        this.delay(3000).then(() => {
           this.startBattle();
         });
       },
@@ -59,13 +59,13 @@ export class BattleSimulationComponent implements OnInit {
 
   }
 
-  removeBrTag(name: string){
+  removeBrTag(name: string) {
     let taglessName = name.replace("<br>", " ");
     return taglessName;
   }
 
   async delay(ms: number) {
-    await new Promise<void>(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log(""));
+    await new Promise<void>(resolve => setTimeout(() => resolve(), ms)).then(() => console.log(""));
   }
 
   startBattle() {
@@ -73,18 +73,18 @@ export class BattleSimulationComponent implements OnInit {
     let damage = 20;
 
     for (let j = 0; j < 10; j++) {
-        let rand = Math.floor(Math.random() * (1 + 1));
-        if (this.fighterLightHealth > 0 && this.fighterDarkHealth > 0) {
-          if (rand == 0) {
-            this.fighterLightHealth -= damage;
-            console.log('light health' + this.fighterLightHealth);
-          } else {
-            this.fighterDarkHealth -= damage;
-            console.log('dark health' + this.fighterDarkHealth);
-          }
+      let rand = Math.floor(Math.random() * (1 + 1));
+      if (this.fighterLightHealth > 0 && this.fighterDarkHealth > 0) {
+        if (rand == 0) {
+          this.fighterLightHealth -= damage;
+          console.log('light health' + this.fighterLightHealth);
         } else {
-          //this.isBattleOver = true;
+          this.fighterDarkHealth -= damage;
+          console.log('dark health' + this.fighterDarkHealth);
         }
+      } else {
+        //this.isBattleOver = true;
+      }
     }
 
     if (this.fighterLightHealth > 0) {
