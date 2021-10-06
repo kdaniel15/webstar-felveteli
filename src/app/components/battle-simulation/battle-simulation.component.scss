@@ -34,7 +34,6 @@
   cursor: pointer;
 }
 
-
 #logoutImg {
   padding-left: 15px;
 }
@@ -61,18 +60,14 @@ footer {
   font-family: Poppinsblack;
   font-size: 24px;
   color: #FFFFFF;
-}
-
-.fighter-name {
-  font-family: Starjedi;
-  font-size: 40px;
-  color: #FFFFFF;
+  text-align: center;
 }
 
 .percentage-bar {
   font-family: Poppinsbold;
   font-size: 24px;
   color: #FFFFFF;
+  text-align: center;
 }
 
 .versus {
@@ -80,14 +75,38 @@ footer {
   font-size: 150px;
   color: #FFFFFF;
   margin: auto;
+  padding-bottom: 180px;
 }
 
 .dark-side {
-  margin: auto;
+  text-align: left;
+  margin-left: 100px;
 }
 
 .light-side {
-  margin: auto;
+  text-align: right;
+  margin-right: 100px;
+}
+
+.light-fighter-image, .dark-fighter-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fighter-name-dark {
+  margin-left: 100px;
+}
+
+.fighter-name-light {
+  margin-right: 100px;
+}
+
+.fighter-name-dark, .fighter-name-light {
+  margin-bottom: 20px;
+  font-family: Starjedi;
+  font-size: 40px;
+  color: #FFFFFF;
 }
 
 .battle-description {
@@ -101,23 +120,51 @@ footer {
 
 #dark {
   transform: scaleX(-1);
+  margin-left: 105px;
 }
 
-.dark-fighter-image {
-  background-color: #333333;
-  border-radius: 50%;
-}
-
-.light-fighter-image {
+.light-side-circle {
   background-color: #FFFFFF;
   border-radius: 50%;
+  height: 340px;
+  width: 340px;
+  z-index: 0;
+  opacity: 100%;
+  position: absolute;
+  margin-left: 50px;
 }
 
-.progress-bar {
-  width: 300px;
+.dark-side-circle {
+  background-color: #333333;
+  border-radius: 50%;
+  height: 340px;
+  width: 340px;
+  z-index: 0;
+  opacity: 100%;
+  position: absolute;
+  margin-right: 50px;
+}
+
+#light {
+  z-index: 1;
+  margin-right: 105px;
+}
+
+.progress-bar-dark, .progress-bar-light {
+  width: 420px;
   height: 20px;
   background-color: #FFFFFF;
   transition: background-color 1s;
+  margin-bottom: 15px;
+  border-radius: 3px;
+}
+
+.progress-bar-dark {
+  margin-left: 100px;
+}
+
+.progress-bar-light {
+  margin-left: 85px;
 }
 
 .title-result {

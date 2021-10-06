@@ -12,7 +12,6 @@
     </div>
   </div>
   <hr>
-  <br>
 
   <div class="battle-in-progress-container" *ngIf="isBattleOver == false">
 
@@ -21,11 +20,12 @@
       <div class="dark-side">
         <div class="fighter-side">Sötét oldal</div>
         <div class="dark-fighter-image">
+          <div class="dark-side-circle"></div>
           <img id="dark" src="assets/{{fighterDarkSide.id}}.png" alt="dark-side-fighter-picture">
         </div>
-        <div class="fighter-name">{{removeBrTag(fighterDarkSide.name).toLowerCase()}}</div>
-        <div class="progress-bar">
-          <div class="progress-bar-width"></div>
+        <div class="fighter-name-dark">{{removeBrTag(fighterDarkSide.name).toLowerCase()}}</div>
+        <div class="progress-bar-dark">
+          <div class="progress-bar-width-dark"></div>
         </div>
         <div class="percentage-bar">{{fighterDarkHealth}}%</div>
       </div>
@@ -36,11 +36,13 @@
 
       <div class="light-side">
         <div class="fighter-side">Világos oldal</div>
-        <div class="light-fighter-image"><img id="light" src="assets/{{fighterLightSide.id}}.png"
-                                              alt="light-side-fighter-picture"></div>
-        <div class="fighter-name">{{removeBrTag(fighterLightSide.name).toLowerCase()}}</div>
-        <div class="progress-bar">
-          <div class="progress-bar-width"></div>
+        <div class="light-fighter-image">
+          <div class="light-side-circle"></div>
+          <img id="light" src="assets/{{fighterLightSide.id}}.png" alt="light-side-fighter-picture">
+        </div>
+        <div class="fighter-name-light">{{removeBrTag(fighterLightSide.name).toLowerCase()}}</div>
+        <div class="progress-bar-light">
+          <div class="progress-bar-width-light"></div>
         </div>
         <div class="percentage-bar">{{fighterLightHealth}}%</div>
       </div>
