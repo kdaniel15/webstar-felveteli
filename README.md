@@ -1,27 +1,13 @@
-# WebstarFelveteli
+# Webstar Felvételi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+## Login page
 
-## Development server
+A felhasználó csak a megfelelő adatok segítségével tud belépni, ilyenkor localstorage-ba kerül mentésre a token illetve felhasználónevünk. Amennyiben hibás adatokat adunk meg az input mezők alatt jelezzük a problémát.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Character picker page
 
-## Code scaffolding
+Mindkét erő oldaláról választunk egy karaktert, ha ugyanarról az erő oldalról akarunk választani kétszer akkor felugró ablakban hiba üzenetet kapunk erről. A kijelölt karaktereknél a kép mögötti sárga karika és az elszíneződött kiválasztom gomb jelez, ha egyszer választottunk egy erő oldalon karaktert csak az weboldal frissítésével lehet újrakezdeni a folyamatot. Valid választás után a képernyő alján megjelenik a szimuláció gomb ami tovább dob a Batte simulation oldalra.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Battle simulation page
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Az oldalra érkezve pár másodperces késleltetéssel elindul a küzdelem szimuláció, ha egy harcos élete eléri a nullát akkor a nyertes kihirdetésre kerül. Innen a vissza a fedélzetre gombbal tudunk visszajutni a karakter választó oldalra.

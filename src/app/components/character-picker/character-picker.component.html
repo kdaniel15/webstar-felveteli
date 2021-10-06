@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <div class="swiper">
+    <div class="swiper-container">
       <div class="arrows">
         <div class="right-arrow">
           <img id="right-arrow" (click)="nextCharacter()" class="swiper-button-next" src="assets/arrow_circle.png"
@@ -73,20 +73,22 @@
         </div>
       </div>
 
-      <swiper
-        [cssMode]="true"
-        [navigation]="true"
-        [pagination]="true"
-        [speed]="400"
-      >
-        <ng-template swiperSlide>
-          <div class="character-image">
-            <div class="yellow-circle" id="yellow-circle"
-                 *ngIf="characters[characterDisplayIndex].isSelected == true"></div>
-            <img id="sliderImg" src="assets/{{characters[characterDisplayIndex].id}}.png" alt="character-pic">
-          </div>
-        </ng-template>
-      </swiper>
+      <div class="swiper">
+        <swiper
+          [cssMode]="true"
+          [navigation]="true"
+          [pagination]="true"
+          [speed]="400"
+        >
+          <ng-template swiperSlide>
+            <div class="character-image">
+              <div class="yellow-circle" id="yellow-circle"
+                   *ngIf="characters[characterDisplayIndex].isSelected == true"></div>
+              <img id="sliderImg" src="assets/{{characters[characterDisplayIndex].id}}.png" alt="character-pic">
+            </div>
+          </ng-template>
+        </swiper>
+      </div>
     </div>
   </div>
 
